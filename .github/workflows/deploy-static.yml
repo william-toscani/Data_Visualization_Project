@@ -1,4 +1,4 @@
-name: Deploy Notebook to GitHub Pages
+name: Deploy Voilà app to GitHub Pages
 
 on:
   push:
@@ -25,12 +25,13 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install jupyter nbconvert plotly
+          pip install -r requirements.txt
 
-      - name: Convert notebook to HTML
+      - name: Render notebook with Voilà
         run: |
-          jupyter nbconvert --to html Data_Viz_Project.ipynb --output index.html
+          voila Data_Viz_Project.ipynb --no-browser --strip_sources=False --template=lab --enable_nbextensions=True --VoilaConfiguration.file_whitelist=".*" --VoilaConfiguration.server_url=/ --VoilaConfiguration.base_url=/ --VoilaConfiguration.root_dir=. --VoilaConfiguration.allow_origin="*"
           mkdir -p public
+          jupyter nbconvert --to html Data_Viz_Project.ipynb --output index.html
           mv index.html public/index.html
 
       - name: Upload artifact
