@@ -30,7 +30,7 @@ jobs:
       # 4. Generare output HTML con Voilà
       - name: Render notebook with Voilà
         run: |
-          voila nome_notebook.ipynb --no-browser --strip_sources=False --template=lab --enable_nbextensions=True --port=8866 --VoilaConfiguration.file_whitelist=".*" --VoilaConfiguration.server_url=/ --VoilaConfiguration.base_url=/ --VoilaConfiguration.root_dir=. --VoilaConfiguration.allow_origin="*"
+          voila Data_Viz_Project.ipynb --no-browser --strip_sources=False --template=lab --enable_nbextensions=True --port=8866 --VoilaConfiguration.file_whitelist=".*" --VoilaConfiguration.server_url=/ --VoilaConfiguration.base_url=/ --VoilaConfiguration.root_dir=. --VoilaConfiguration.allow_origin="*"
           # NB: qui puoi adattare parametri, ma l’idea è generare l’output statico
 
       # 5. Deploy su GitHub Pages
