@@ -1,3 +1,5 @@
-plotly
+voila
 jupyter
-nbconvert
+plotly
+pandas
+numpy
